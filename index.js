@@ -52,8 +52,14 @@ async function run() {
     })
     //my added craft item
     app.get("/myCraft/:email", async (req, res) => {
-      console.log(req.params.email);
+      // console.log(req.params.email);
       const result = await artCollection.find({ email: req.params.email }).toArray();
+      res.send(result)
+    })
+    //match subcategory wise data
+    app.get("/matchSubcategory/:subcategory", async (req, res) => {
+      // console.log(req.params.email);
+      const result = await artCollection.find({ subcategory: req.params.subcategory }).toArray();
       res.send(result)
     })
 
